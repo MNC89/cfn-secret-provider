@@ -1,8 +1,13 @@
 name: release
+
 on:
-  push:
-    tags:
-      - '*'
+  workflow_dispatch:
+    inputs:
+      environment_stage:
+        description: 'Environment Stage for Manual EKS Setup'
+        required: true
+        default: 'dev'
+
 jobs:
   build:
     name: snapshot
